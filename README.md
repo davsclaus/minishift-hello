@@ -13,41 +13,9 @@ The diagram below illustrates this:
 ![Overview](diagram.png?raw=true "Overview")
 
 
-### Running Kubernetes locally
+### Running MiniShift locally
 
-The applications can be deployed in a kubernetes cluster. You can run a kubernetes cluster locally using fabric8 which you can find more details here: [fabric8 get started](https://fabric8.io/guide/getStarted/index.html)
-
-#### Installing from Maven
-
-The fabric8 team has made it very easy to download, install and start a Kubernetes/OpenShift cluster on your computer very easy. All you need to do is from a command line run this Maven goal:
-
-    mvn io.fabric8:fabric8-maven-plugin:3.2.9:cluster-start
-
-And if you want to use OpenShift instead of Kubernetes:
-
-    mvn io.fabric8:fabric8-maven-plugin:3.2.9:cluster-start -Dfabric8.cluster.kind=openshift
-
-Then fabric8 will download the binaries into `<HOME>/.fabric8/bin` directory. It can be a good idea to add this directory to the `$PATH`, so you can easily run the clients to interact with the cluster.
-
-However before we had to install fabric8 using a few more manual steps as explained below.
-
-#### Manually steps
-
-I am using MiniShift to run my local kubernetes cluster. I run the minimal version which do not include the CI/CD pipeline and therefore I run with low memory usage.
-
-    minishift start --memory=2000
-
-... and follow the instructions from minishift.
-
-And then I have installed fabric8 using gofabric8:
-
-    gofabric8 deploy -y --console
-
-... and follow the instructions from fabric8.
-
-If all this is sucesfull you can open the fabric8 web console using:
-
-    gofabric8 consoole
+The applications can be deployed in a OpenShift cluster. You can run a OpenShift cluster locally using MiniShift which you can find more details here: [MiniShift](https://www.openshift.org/minishift/)
 
 ### Slides
 
@@ -57,7 +25,7 @@ This source code is used for a talk at various conferences, and you can find the
 
 When using Maven tooling you want to setup your command shell for docker/kubernetes which can be done by
 
-    gofabric8 docker-env
+    minishift docker-env
 
 Which tells you how to setup using eval
 
