@@ -1,4 +1,0 @@
-metadata:
-  annotations:
-    api.service.kubernetes.io/path: /say
-  name: "helloswarm"
