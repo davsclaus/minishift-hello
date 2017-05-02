@@ -41,7 +41,7 @@ You can deploy the WildFly Swarm application which hosts the hello service.
 
 If the build is success you can deploy to kubernetes using:
 
-    mvn fabric:deploy
+    mvn fabric8:deploy
 
 
 ### Deploying Spring Boot (client)
@@ -53,13 +53,13 @@ You can deploy the Spring Boot application which is the client calling the hello
 
 If the build is success you can deploy to kubernetes using:
 
-    mvn fabric:deploy
+    mvn fabric8:deploy
 
 You should then be able to show the logs of the client, by running `oc get pods` and find the name of the pod that runs the client, and then use `oc logs -f pod-name` to follow the logs.
 
 However you can also run the application from the shell and have logs automatic tailed using
 
-    mvn fabric:run
+    mvn fabric8:run
 
 And then when you press `cltr + c` then the application is undeployed. This allows to quickly run an application and stop it easily as if you are using `mvn spring-boot:run` or `mvn wildfly-swarm:run` etc.
 
