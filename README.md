@@ -21,6 +21,10 @@ The applications can be deployed in a OpenShift cluster. You can run a OpenShift
 
 This source code is used for a talk at various conferences, and you can find the slides for the talks in the [slides](slides) directory.
 
+### Video
+
+I gave a talk `Developing cloud-ready Camel microservices` at Red Hat Summit 2017 which was video recorded and posted on [youtube](https://www.youtube.com/watch?v=a0DXIspd1Zs&index=7&list=PLEGSLwUsxfEh4TE2GDU4oygCB-tmShkSn)
+
 ### Prepare shell
 
 When using Maven tooling you want to setup your command shell for docker/kubernetes which can be done by
