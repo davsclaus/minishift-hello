@@ -67,3 +67,27 @@ However you can also run the application from the shell and have logs automatic 
 
 And then when you press `cltr + c` then the application is undeployed. This allows to quickly run an application and stop it easily as if you are using `mvn spring-boot:run` or `mvn wildfly-swarm:run` etc.
 
+
+### Installing Hystrix Dashboard
+
+The `client-hystrix` application which uses Hystrix can be viewed from the Hystrix Dashboard.
+
+To install the dashboard you first need to install a hystrix stat collector which is called Turbine:
+
+    oc create -f http://repo1.maven.org/maven2/io/fabric8/kubeflix/turbine-server/1.0.28/turbine-server-1.0.28-openshift.yml
+    oc policy add-role-to-user admin system:serviceaccount:myproject:turbine
+    oc expose service turbine-server
+
+Notice that the project name used for adding the policy is `mypolicy`, if you use a different project name, the adjust accordingly.
+
+Then you can install the Hystrix Dashboard:
+
+    oc create -f http://repo1.maven.org/maven2/io/fabric8/kubeflix/hystrix-dashboard/1.0.28/hystrix-dashboard-1.0.28-openshift.yml
+    oc expose service hystrix-dashboard --port=8080
+
+You should then be able to open the Hystrix Dashboard if you go into the OpenShift web console and click the url link
+of the deployment, something like (http://hystrix-dashboard-myproject.192.168.64.3.nip.io/)
+
+![HystrixDashboard](hystrix-dashboard.png?raw=true "Hystrix Dashboard")
+
+Credits to Charles Moulliard for instructions: https://github.com/redhat-microservices/lab_springboot-openshift/#5-enable-circuit-breaker
