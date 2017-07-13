@@ -10,7 +10,7 @@
   <packaging>jar</packaging>
 
   <properties>
-    <version.wildfly.swarm>2017.6.0</version.wildfly.swarm>
+    <version.wildfly.swarm>2017.7.0</version.wildfly.swarm>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <failOnMissingWebXml>false</failOnMissingWebXml>
@@ -47,7 +47,7 @@
       <plugin>
         <groupId>io.fabric8</groupId>
         <artifactId>fabric8-maven-plugin</artifactId>
-        <version>3.4.1</version>
+        <version>3.5.2</version>
         <!-- TODO: easy way to not include health-check -->
         <!-- <version>3.3.5</version> -->
         <executions>
