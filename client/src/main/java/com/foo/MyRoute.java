@@ -16,8 +16,9 @@ public class MyRoute extends RouteBuilder {
 //                .maximumRedeliveries(10)
 //                .redeliveryDelay(1000);
 
+        // lets use a 5 second connection timeout (instead of 120 sec) to fail quicker
         from("timer:foo?period=2000")
-                .to("http4:{{service:helloswarm}}/hello?connectionClose=true")
+                .to("http4:{{service:helloswarm}}/hello?connectionClose=true&httpClient.connectTimeout=5000")
                 .log("${body}");
     }
 }
