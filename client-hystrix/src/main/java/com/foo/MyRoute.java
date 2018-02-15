@@ -4,7 +4,12 @@ import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
 /**
- * Uses the Hystrix Circuit Breaker
+ * Uses the Hystrix Circuit Breaker.
+ *
+ * See also the <tt>application.properties</tt> file where
+ * Hystrix has been configured, and the <tt>src/main/fabric8/service.yml</tt> file
+ * which adds a label to instruct the Turbine/Hystrix Dashboard that this
+ * container runs Hystrix.
  */
 @Component
 public class MyRoute extends RouteBuilder {
@@ -17,7 +22,7 @@ public class MyRoute extends RouteBuilder {
             .onFallback()
                 .setBody().constant("Nobody want to talk to me")
             .end()
-                .log("${body}");
+            .log("${body}");
     }
 }
 
